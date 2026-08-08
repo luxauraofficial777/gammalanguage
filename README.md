@@ -5,7 +5,7 @@ Created by Lux Aura https://facebook.com/LuxAuraOfficial https://luxaura.bandcam
 # Liminal A2A-DSL (Agent-to-Agent Domain Specific Language)
 ## Specification v1.0 — Token-Compressed Native Agentic Architecture
 
-**Authors:** Google DeepMind Antigravity Pair-Programming Suite  
+**Authors:** Lux Aura, Google DeepMind Antigravity Pair-Programming Suite  
 **Target Runtimes:** VoidWalkers HD Engine, Modern_X64, VW Nexus Server (`:8651`), Colibri MoE Router, TurboQuant Bridge (`:8646`), Caveman Middleware  
 **Date:** August 2026  
 
