@@ -1,4 +1,7 @@
 # gammalanguage
+
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/511ffa8a-b3d9-480a-94d9-0acba10de17b" />
+
 Gamma Programming Language for Agentic LLMs optimization and MCP Vector Analysis
 Created by Lux Aura https://facebook.com/LuxAuraOfficial https://luxaura.bandcamp.com https://youtube.com/LuxAuraOfficial https://github.com/luxauraofficial777
 
