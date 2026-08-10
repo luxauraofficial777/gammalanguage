@@ -14,7 +14,10 @@ Slashing LLM context overhead by >85% with zero-copy C++ execution.
 
 All notable changes to GammaLanguage (Liminal A2A-DSL) are documented in this file.
 
----
+## [v1.11A] — August 11, 2026
+
+1. Installer Security & Build IntegrityCompiler-Gated Execution: Modified install.ps1 to strictly require a verified local C++ build step before launching any binary.  Prebuilt Binary Removal: Removed stale prebuilt binaries (cpp/bin/gamma_parser.exe) from the main release tree to ensure callers do not execute out-of-date build artifacts.  Flat Source Tree: Source archives unzipped into a flat directory structure at the root, making every header and C++ VM file directly searchable and diffable.  2. Lexer & Parsing Fixes@ALIGN_BOUND Parsing Correction: Rewrote numeric digit parsing in A2ALexer.h to initialize accumulators properly and handle KEY= assignment prefixes.  Operand & Register Extraction: Upgraded the lexer to parse exact register indices (#QVEC[3]) and pass target bank targets (target_reg, src_reg_a, src_reg_b) into AST nodes.  Explicit Caveman Processing: Stripped out static placeholder strings in A2AEvaluator.h in favor of explicit NOT_IMPLEMENTED fault signals or real Python bridge compression calls.  3. Execution Engine & Benchmark ParityBenchmark Loop Parity: Aligned test_a2a_parser.cpp so parse-and-execute cycles are measured equally across AST and A2A-B bytecode execution paths.  Zero-Allocation Messaging: Replaced heap-allocating std::string return messages inside signal emission routines with fixed-size inline string buffers.  Software Fallback Flags: Updated specification documents to explicitly mark Vulkan GPU acceleration routines and hardware vector intrinsics as software fallbacks/stubs where native C++ code is not yet linked.  4. Hardware & FFI Interop Integrationrepr(C) Offset Parity: Maintained zero-copy RUST_OFFSET_LOAD (0xA0) struct pointer extraction with flag masks.  MIPS CP0 & PSX DMA Dispatch: Retained direct opcode bridges for CP0_REG_MAP (0xA3) and PSX_DMA_DISPATCH (0xA4) for CyberGrime assembly and PSXMatrix interop.  
+
 
 ## [v1.1C] — August 11, 2026
 
