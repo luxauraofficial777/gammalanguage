@@ -5,6 +5,15 @@
 Gamma Programming Language for Agentic LLMs optimization and MCP Vector Analysis
 Created by Lux Aura https://facebook.com/LuxAuraOfficial https://luxaura.bandcamp.com https://youtube.com/LuxAuraOfficial https://github.com/luxauraofficial777
 
+#  GammaLanguage in 30 Seconds
+
+Replace 300+ token JSON-RPC payloads with 20-token bare-metal sigil streams. 
+Slashing LLM context overhead by >85% with zero-copy C++ execution.
+
+### 1. One-Click Install
+```powershell
+.\install.ps1
+
 ## [v1.1A-Robust+] — August 10, 2026
 
 ### Peak Performance Architectural Additions
