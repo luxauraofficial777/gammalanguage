@@ -6,6 +6,69 @@ Gamma Programming Language for Agentic LLMs optimization and MCP Vector Analysis
 Created by Lux Aura with code review by KVOID (Barbelith) https://facebook.com/LuxAuraOfficial https://luxaura.bandcamp.com https://youtube.com/LuxAuraOfficial https://github.com/luxauraofficial777 https://kvoid.net 
 
 # Liminal A2A-DSL (Agent-to-Agent Domain Specific Language)
+# GammaLanguage Release Document
+## Version: v1.11C — August 12, 2026
+
+**Author:** Lux Aura / Antigravity Suite  
+**Target Runtimes:** VoidWalkers HD Engine, Modern_X64, VW Nexus Server (`:8651`), DuckStation/PSX Emulators, Custom Micro-Runtimes  
+
+---
+
+### Executive Summary
+
+**GammaLanguage v1.11C** represents the canonical, fully audited release of the Liminal A2A-DSL ecosystem. Following the August 12, 2026 comprehensive audit, v1.11C resolves all C++/Python runtime divergences, consolidates historical tool forks into unified canonical modules (HAZ-01), promotes `GIGATOKEN_PACK` to an inline value-returning opcode, introduces empirical measurements for Caveman compression, and adds the **Liminal Link** 4-gate manager.
+
+---
+
+### Key Technical Upgrades in v1.11C
+
+1. **C++/Python Runtime Divergence Resolution (19/19 Conformance):**
+   - Fixed `CAVEMAN_SHRINK` execution ordering (handled inline rather than falling through to host request recording).
+   - Implemented exact Cosine Similarity matching in Python (`int(sim * 1000)`) to achieve byte-for-byte state parity with the C++ AST VM.
+   - Normalized CTX register string formatting and truncation across both engines.
+
+2. **Gigatoken Inline Value Dispatch & Word-Budget Packing:**
+   - Promoted `GIGATOKEN_PACK` (Opcode `0x30`) from fire-and-forget host recording to an inline value-returning instruction.
+   - Implemented deterministic head/tail word-budget packing: `<head: 60%> ...[GIGATOKEN: elided N units]... <tail: 40%>`.
+   - Verified that under-budget context passes through 100% byte-identical.
+
+3. **Measured Caveman Compression Engine:**
+   - Empirical benchmark (`tests/benchmark_caveman.py`) confirms **38.5% token/word reduction** on filler-heavy prose (78 → 48 words).
+   - Fixed pre-normalization whitespace handling across newlines for filler pattern stripping.
+
+4. **HAZ-01 Tool Fork Consolidation:**
+   - Resolved multi-directory tool divergence across Liminal Lore builds.
+   - Standardized `fubbu`, `zhark`, and `vw_nexus` under single canonical paths, replacing obsolete vendored forks with clean import shims.
+
+5. **Liminal Link 4-Gate Operations Manager (`tools/liminal_link.py`):**
+   - Introduced a Tkinter supervisor interface monitoring C++ Suite (94 tests), Python E2E (93 tests), Rust FFI (5 tests), and Conformance (19/19 agreed).
+
+6. **Hardened Error Recovery & Security Traps:**
+   - Intercepted `@ON_ERROR` handlers for runtime faults while forcing `INSTRUCTION_BUDGET` and `MEMORY_LIMIT_EXCEEDED` to remain uncatchable fatal traps.
+
+---
+
+### Verification Matrix
+
+| Test Suite | Target | Result |
+|---|---|---|
+| **C++ AST VM & Parser** | `cpp/build/gamma_parser.exe` | **94 / 94 Passed** (0 heap allocs on hotpath) |
+| **Python Host E2E** | `pytest tests/test_host_e2e.py` | **93 / 93 Passed** |
+| **Cross-Impl Conformance** | `python tests/test_conformance.py` | **19 / 19 Agreed** (C++ ≡ Python) |
+| **Rust FFI Crate** | `cargo test` (`rust/`) | **5 / 5 Passed** |
+| **Gigatoken Benchmark** | `tests/benchmark_gigatoken.py` | **100% Acceptance Criteria Met** |
+| **Caveman Benchmark** | `tests/benchmark_caveman.py` | **38.5% Measured Compression** |
+
+---
+
+### File Inventory
+
+- `cpp/A2AST.h`, `cpp/A2ALexer.h/.cpp`, `cpp/A2AEvaluator.h/.cpp`, `cpp/test_a2a_parser.cpp`
+- `python/gamma_bridge.py`, `python/gamma_host.py`, `python/gamma_cli.py`
+- `rust/gamma_ffi.rs`, `rust/Cargo.toml`
+- `tools/liminal_link.py`
+- `spec/GAMMA_LANGUAGE_EBNF_SPEC.md`, `spec/OPERATIONAL_SEMANTICS.md`
+
 ## v1.11B — Deterministic Agent VM with Hardware Interop & Bytecode Target
 
 **Authors:** Lux Aura  
